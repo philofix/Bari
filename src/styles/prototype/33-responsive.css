@@ -1,0 +1,47 @@
+/* responsive */
+@media (max-width:1100px){
+ .navc,.navr .btn{display:none}
+ .burger{display:grid}
+ .nav{grid-template-columns:auto 1fr}
+ .hin,.phero .in,.cgrid,.fgrid,.story,.cgrid2,.spanel,.sdet{grid-template-columns:1fr}
+ .sdet.rev .sx{order:0}
+ .shead{grid-template-columns:1fr}
+ .pcards,.bgrid3,.plans,.wcards,.team,.dcards,.how3{grid-template-columns:1fr}
+ .bcard{border-left:0;border-top:1px solid var(--line)}.bcard:first-child{border-top:0}
+ .lpan,.lcap{grid-template-columns:1fr}.lcap{gap:28px}
+ .pcg{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .bgridx{grid-template-columns:1fr;grid-template-rows:auto}
+ .bc.a,.bc.b,.bc.c,.bc.d{grid-column:1;grid-row:auto}
+ .bc.a{min-height:150px}.bc.b{min-height:260px}.bc.c{min-height:300px;padding:34px 20px}.bc.d{min-height:200px}
+ .sgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .ints{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .stg{grid-template-columns:1fr;gap:20px}
+ .trk{grid-template-columns:1fr}
+ .fgrid2{grid-template-columns:1fr 1fr}
+ .lcells{grid-template-columns:repeat(4,minmax(0,1fr))}.lcell:nth-child(n+5){display:none}
+ .story .cols{columns:1}
+ .where .wt{grid-template-columns:1fr}
+ .lhead{grid-template-columns:1fr}
+}
+@media (max-width:680px){
+ .wrap{padding:0 18px}
+ .sec{padding:80px 0}.dawnsec{padding:64px 0}
+ .pvb{grid-template-columns:1fr}.pvs{display:none}
+ .pvk b{font-size:19px}
+ .pcg,.sgrid,.commits,.two,.inc,.vm,.defs,.vals,.sup{grid-template-columns:1fr}
+ .vm>div+div,.defs>div+div{padding-left:0;border-left:0;border-top:1px solid var(--line);padding-top:24px}
+ .vm>div{padding-right:0;padding-bottom:28px}
+ .vals>div,.sup>div{padding-left:0!important;border-left:0!important;padding-right:0}
+ .ints{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .cmpr{grid-template-columns:1fr}.cmpr>*+*{border-left:0;border-top:1px solid var(--line)}.cmpr:first-child{display:none}
+ .trow{grid-template-columns:1fr;gap:4px}
+ .form{grid-template-columns:1fr}
+ .fgrid2{grid-template-columns:1fr}
+ .kcard{height:580px}.kr0{padding:14px;border-radius:30px}
+ .kl,.kp{font-size:14px;padding:0 12px}.ktop{font-size:14px;padding:8px 12px}
+ .glass{grid-template-columns:1fr}.dbot{grid-template-columns:1fr}.dnav .c{display:none}
+ .wm{grid-template-columns:1fr 1fr}
+ .lcells{grid-template-columns:repeat(3,minmax(0,1fr))}.lcell:nth-child(n+4){display:none}
+ .where{min-height:720px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.arcs *,.dawnsec .bl,.art .st{animation:none!important}}

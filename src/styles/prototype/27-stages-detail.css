@@ -1,0 +1,7 @@
+/* stages detail */
+.stg{display:grid;grid-template-columns:120px minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:32px;padding:40px 0;border-top:1px solid var(--line);align-items:start}
+.stg .n{font-family:var(--disp);font-size:56px;letter-spacing:-.05em;line-height:1;color:var(--accenttext)}
+.stg h3{font-family:var(--disp);font-weight:400;font-size:30px;letter-spacing:-.035em}
+.stg h4{font-size:12.5px;font-weight:600;letter-spacing:.05em;color:var(--subtle);text-transform:uppercase;margin-bottom:12px}
+.stg li{display:flex;gap:10px;font-size:14.5px;line-height:1.45;padding:8px 0;border-top:1px solid var(--line)}
+.stg li:first-child{border-top:0}

@@ -1,0 +1,24 @@
+/* bracket cards (img3) */
+.bracket{position:relative;padding:16px}
+.bracket::before,.bracket::after,.bracket>.bk::before,.bracket>.bk::after{content:"";position:absolute;width:14px;height:14px;border-color:var(--subtle);border-style:solid}
+.bracket::before{left:0;top:0;border-width:1px 0 0 1px}.bracket::after{right:0;top:0;border-width:1px 1px 0 0}
+.bracket>.bk::before{left:0;bottom:0;border-width:0 0 1px 1px}.bracket>.bk::after{right:0;bottom:0;border-width:0 1px 1px 0}
+.bgrid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line);background:var(--surface)}
+.bcard{display:flex;flex-direction:column;border-left:1px solid var(--line)}
+.bcard:first-child{border-left:0}
+.art{position:relative;margin:20px 20px 0;height:330px;overflow:hidden;border-radius:4px}
+.art .ab{position:absolute;inset:0}
+.art .st{position:absolute;inset:-30%;transform:rotate(18deg);background:repeating-linear-gradient(100deg,rgba(255,240,210,0) 0 18px,rgba(255,236,200,.35) 22px 26px,rgba(255,240,210,0) 30px 60px);filter:blur(3px)}
+.art .ov{position:absolute;left:14%;right:14%;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px}
+.oc{background:#fff;color:#111;border-radius:4px;padding:12px 14px;font-size:12px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.oc.dk{background:#0b0c10;color:#e8eaf0}
+.oc .mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:10.5px;letter-spacing:.06em;color:#777}
+.oc.dk .mono{color:#9aa1b2}
+.oc b{display:block;font-size:13px;font-weight:600;margin-top:6px}
+.oc ul{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.oc li{display:flex;justify-content:space-between;gap:10px}
+.oc .pill2{display:inline-flex;align-items:center;gap:6px;font-size:10px;padding:3px 8px;border-radius:999px;background:#1d2330;color:#9fe7bd}
+.bfoot{padding:20px 24px 28px}
+.bfoot .mono{display:flex;align-items:center;gap:8px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.bfoot h3{font-size:19px;font-weight:600;letter-spacing:-.02em;margin-top:18px}
+.bfoot p{margin-top:10px}

@@ -1,0 +1,14 @@
+/* footer */
+.foot{background:var(--inv);color:var(--invmuted);padding:80px 0 34px}
+.fgrid2{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:40px}
+.foot .logo{color:var(--invink);font-size:32px}
+.foot p.t{margin-top:16px;font-size:14.5px;line-height:1.6;max-width:320px}
+.foot h4{font-size:13px;font-weight:600;color:var(--invink);margin-bottom:14px}
+.foot ul a,.foot ul span{display:inline-flex;align-items:center;min-height:36px;text-decoration:none;font-size:14.5px}
+.foot ul a:hover{color:var(--invink)}
+.soc{display:flex;gap:8px;margin-top:22px}
+.soc span{width:40px;height:40px;border-radius:10px;border:1px solid var(--invline);display:grid;place-items:center}
+.fbot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px 30px;margin-top:64px;padding-top:24px;border-top:1px solid var(--invline);font-size:13px}
+.fbot .ib{background:transparent;border-color:var(--invline);color:var(--invink)}
+.huge{font-family:var(--disp);font-weight:700;font-size:clamp(90px,21vw,320px);letter-spacing:-.06em;line-height:.8;color:var(--invink);opacity:.06;margin-top:48px;user-select:none}
+.huge i{font-style:normal}

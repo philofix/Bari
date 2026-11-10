@@ -1,0 +1,19 @@
+/* plans */
+.seg{position:relative;display:inline-flex;background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:4px}
+.seg .ind{position:absolute;left:0;top:4px;height:calc(100% - 8px);border-radius:999px;background:var(--ink)}
+.seg button{position:relative;z-index:1;min-height:42px;min-width:120px;padding:0 20px;border:0;background:transparent;color:var(--ink);font-size:14px;font-weight:500;cursor:pointer;border-radius:999px;transition:color .25s}
+.seg button[aria-pressed="true"]{color:var(--bg)}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:44px;align-items:stretch}
+.plan{border:1px solid var(--line);border-radius:22px;background:var(--surface);padding:30px 28px;display:flex;flex-direction:column;gap:16px;position:relative}
+.plan.hot{background:var(--feat);color:#fff;border-color:transparent}
+.plan .tag{align-self:flex-start;margin-bottom:-4px;font-size:12px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.14);color:#fff}
+.plan h3{font-family:var(--disp);font-weight:500;font-size:26px;letter-spacing:-.03em}
+.plan .pr{font-family:var(--disp);font-size:44px;letter-spacing:-.045em;line-height:1}
+.plan .pr small{font-family:var(--body);font-size:13px;letter-spacing:0;color:var(--muted);margin-left:8px}
+.plan.hot .pr small,.plan.hot .body,.plan.hot .dep{color:rgba(255,255,255,.75)}
+.dep{font-size:13px;color:var(--muted);min-height:20px;display:flex;align-items:center;gap:8px}
+.plan ul{display:flex;flex-direction:column;gap:11px;padding-top:18px;border-top:1px solid var(--line);margin-top:auto}
+.plan.hot ul{border-color:rgba(255,255,255,.18)}
+.plan li{display:flex;gap:10px;font-size:14px;line-height:1.4}
+.plan li svg{flex:none;margin-top:1px}
+.plan .btn{width:100%}

@@ -1,0 +1,236 @@
+{
+  "home": {
+    "attrs": {
+      "class": "page",
+      "data-page": "home"
+    },
+    "sections": [
+      {
+        "name": "Hero"
+      },
+      {
+        "name": "Problem"
+      },
+      {
+        "name": "Build"
+      },
+      {
+        "name": "Coverage"
+      },
+      {
+        "name": "Local"
+      },
+      {
+        "name": "Howcards"
+      },
+      {
+        "name": "Plans",
+        "shared": true,
+        "prefix": null
+      },
+      {
+        "name": "Dash"
+      },
+      {
+        "name": "Why"
+      },
+      {
+        "name": "Selwork"
+      },
+      {
+        "name": "TeamTeaser"
+      },
+      {
+        "name": "Faq",
+        "shared": true,
+        "prefix": "h"
+      },
+      {
+        "name": "DawnCta",
+        "shared": true,
+        "prefix": null
+      }
+    ]
+  },
+  "services": {
+    "attrs": {
+      "class": "page",
+      "data-page": "services",
+      "hidden": null
+    },
+    "sections": [
+      {
+        "name": "Hero"
+      },
+      {
+        "name": "ServicesOverview"
+      },
+      {
+        "name": "ServiceDetails"
+      },
+      {
+        "name": "Integrations"
+      },
+      {
+        "name": "TechStack"
+      },
+      {
+        "name": "Plans",
+        "shared": true,
+        "prefix": null
+      },
+      {
+        "name": "DawnCta",
+        "shared": true,
+        "prefix": null
+      }
+    ]
+  },
+  "sectors": {
+    "attrs": {
+      "class": "page",
+      "data-page": "sectors",
+      "hidden": null
+    },
+    "sections": [
+      {
+        "name": "Hero"
+      },
+      {
+        "name": "SectorTabs"
+      },
+      {
+        "name": "Coverage"
+      },
+      {
+        "name": "Outcomes"
+      },
+      {
+        "name": "Foundations"
+      },
+      {
+        "name": "DawnCta",
+        "shared": true,
+        "prefix": null
+      }
+    ]
+  },
+  "process": {
+    "attrs": {
+      "class": "page",
+      "data-page": "process",
+      "hidden": null
+    },
+    "sections": [
+      {
+        "name": "Hero"
+      },
+      {
+        "name": "Stages"
+      },
+      {
+        "name": "Tracking"
+      },
+      {
+        "name": "Plans",
+        "shared": true,
+        "prefix": null
+      },
+      {
+        "name": "Deploy"
+      },
+      {
+        "name": "Support"
+      },
+      {
+        "name": "Faq",
+        "shared": true,
+        "prefix": "p"
+      },
+      {
+        "name": "DawnCta",
+        "shared": true,
+        "prefix": null
+      }
+    ]
+  },
+  "work": {
+    "attrs": {
+      "class": "page",
+      "data-page": "work",
+      "hidden": null
+    },
+    "sections": [
+      {
+        "name": "Hero"
+      },
+      {
+        "name": "CaseStudies"
+      },
+      {
+        "name": "CaseStudyFormat"
+      },
+      {
+        "name": "WorkCta"
+      }
+    ]
+  },
+  "about": {
+    "attrs": {
+      "class": "page",
+      "data-page": "about",
+      "hidden": null
+    },
+    "sections": [
+      {
+        "name": "Hero"
+      },
+      {
+        "name": "Story"
+      },
+      {
+        "name": "VisionMission"
+      },
+      {
+        "name": "Values"
+      },
+      {
+        "name": "Location"
+      },
+      {
+        "name": "Team"
+      },
+      {
+        "name": "Principles"
+      },
+      {
+        "name": "DawnCta",
+        "shared": true,
+        "prefix": null
+      }
+    ]
+  },
+  "contact": {
+    "attrs": {
+      "class": "page",
+      "data-page": "contact",
+      "hidden": null
+    },
+    "sections": [
+      {
+        "name": "Hero"
+      },
+      {
+        "name": "ContactForm"
+      },
+      {
+        "name": "NextSteps"
+      },
+      {
+        "name": "Faq",
+        "shared": true,
+        "prefix": "c"
+      }
+    ]
+  }
+}

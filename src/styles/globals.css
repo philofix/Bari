@@ -1,0 +1,31 @@
+/*
+ * Tailwind v4 without Preflight: the prototype ships its own reset, and Preflight
+ * would change base typography/spacing. Theme + utilities are available for new UI.
+ */
+@layer theme, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@source "../";
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg2: var(--bg2);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accentink);
+  --color-accent-text: var(--accenttext);
+  --color-accent-soft: var(--accentsoft);
+  --color-inv: var(--inv);
+  --color-inv-ink: var(--invink);
+  --color-ok: var(--ok);
+  --font-display: var(--disp);
+  --font-body: var(--body);
+  --font-ethiopic: var(--eth);
+  --ease-bari: cubic-bezier(.22, 1, .36, 1);
+}
+
+@import "./prototype.css";

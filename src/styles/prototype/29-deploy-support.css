@@ -1,0 +1,13 @@
+/* deploy + support */
+.dcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.dcard{border:1px solid var(--line);border-radius:22px;padding:28px;background:var(--surface);display:flex;flex-direction:column;gap:12px}
+.dcard.hot{background:var(--feat);color:#fff;border-color:transparent}
+.dcard.hot .body{color:rgba(255,255,255,.78)}
+.dcard h3{font-family:var(--disp);font-weight:500;font-size:24px;letter-spacing:-.03em;margin-top:8px}
+.dcard .bf{margin-top:auto;padding-top:16px;font-size:14px;font-weight:600;color:var(--accenttext)}
+.dcard.hot .bf{color:#fff}
+.dcard.hot .ic{background:rgba(255,255,255,.16);color:#fff}
+.sup{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
+.sup>div{padding:28px 28px 28px 0;display:flex;flex-direction:column;gap:10px;border-bottom:1px solid var(--line)}
+.sup>div:not(:nth-child(3n+1)){padding-left:28px;border-left:1px solid var(--line)}
+.sup h3{font-size:17px;font-weight:600}

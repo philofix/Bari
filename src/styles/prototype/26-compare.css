@@ -1,0 +1,8 @@
+/* compare */
+.cmp{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:var(--surface)}
+.cmpr{display:grid;grid-template-columns:200px 1fr 1fr;border-top:1px solid var(--line)}
+.cmpr:first-child{border-top:0;background:var(--bg2);font-size:13px;font-weight:600;color:var(--muted)}
+.cmpr>*{padding:18px 22px;font-size:15px;display:flex;align-items:center;gap:10px}
+.cmpr>*+*{border-left:1px solid var(--line)}
+.cmpr .bad{color:var(--muted)}
+.cmpr .good{font-weight:500}

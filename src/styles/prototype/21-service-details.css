@@ -1,0 +1,14 @@
+/* service details */
+.sdet{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center;padding:56px 0;border-top:1px solid var(--line)}
+.sdet:first-child{border-top:0;padding-top:0}
+.sdet.rev .sx{order:2}
+.sx .n{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;color:var(--subtle)}
+.sx h3{font-family:var(--disp);font-weight:400;font-size:clamp(28px,3vw,40px);letter-spacing:-.035em;margin-top:12px}
+.sx .lead{margin-top:14px}
+.inc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 20px;margin-top:24px}
+.inc li{display:flex;gap:10px;font-size:14.5px;line-height:1.4}
+.inc svg{flex:none;margin-top:1px}
+.best{margin-top:22px;padding:14px 16px;border-radius:12px;background:var(--bg2);font-size:14px;color:var(--muted)}
+.best b{color:var(--ink);font-weight:600}
+.sviz{position:relative;height:380px;border-radius:24px;overflow:hidden;background:var(--dawn);display:grid;place-items:center}
+.sviz i.bb2{position:absolute;border-radius:50%;filter:blur(50px)}

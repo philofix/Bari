@@ -1,0 +1,7 @@
+/* tech table */
+.ttab{border-top:1px solid var(--line)}
+.trow{display:grid;grid-template-columns:200px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);font-size:15px}
+.trow b{font-weight:600}.trow span{color:var(--muted)}
+.commits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.cm{border:1px solid var(--line);border-radius:18px;padding:22px;background:var(--surface);display:flex;flex-direction:column;gap:10px}
+.cm h3{font-size:17px;font-weight:600}

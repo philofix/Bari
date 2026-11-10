@@ -1,0 +1,14 @@
+/* logo strip */
+.lstrip{margin-top:64px}
+.lstrip .lb{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:13px;color:var(--muted);margin-bottom:14px}
+.lcells{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--surface)}
+.lcell{position:relative;height:118px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--subtle);border-left:1px solid var(--line);cursor:default;overflow:hidden;transition:color .35s}
+.lcell:first-child{border-left:0}
+.lcell::before{content:"";position:absolute;left:0;right:0;top:0;height:46%;background:repeating-linear-gradient(180deg,var(--spec) 0 2px,transparent 2px 6px),linear-gradient(90deg,#f2c14e,#ec6a52,#7a5cf0,#2160f3,#3fc1a5);-webkit-mask:linear-gradient(180deg,#000,transparent);mask:linear-gradient(180deg,#000,transparent);opacity:0;transition:opacity .45s}
+.lcell.on{color:var(--ink)}.lcell.on::before{opacity:.55}
+.lcell svg{position:relative}
+.lcell span{position:relative;font-size:12.5px}
+.ticks{display:flex;gap:4px;height:26px;align-items:flex-end;margin-top:12px;padding:0 4px}
+.ticks i{flex:1;height:40%;background:var(--line);border-radius:1px;transition:height .35s var(--ease),background .35s}
+.ticks i.on{height:100%;background:var(--ink)}
+.lcell span{text-align:center}

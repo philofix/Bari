@@ -1,0 +1,4 @@
+/* integrations */
+.ints{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.int{border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:18px 14px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;font-size:13.5px;will-change:transform}
+.int .ic{width:48px;height:48px;border-radius:13px;background:var(--accentsoft);color:var(--accenttext);display:grid;place-items:center}

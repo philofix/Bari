@@ -1,0 +1,14 @@
+/* process cards */
+.ph{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:64px}
+.ph .t{display:flex;flex-direction:column;gap:16px;max-width:680px}
+.mono2{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;letter-spacing:.06em;color:var(--invmuted);text-transform:uppercase}
+.pcg{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.pcd{position:relative;background:var(--inv2);border:1px solid var(--invline);border-radius:18px;padding:22px 22px 26px;min-height:340px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.pcd>div:last-child{min-height:132px}
+.pcd .n{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;color:var(--invmuted)}
+.pcd h3{font-size:19px;font-weight:500;letter-spacing:-.02em;color:var(--invink)}
+.pcd p{font-size:14px;line-height:1.55;color:var(--invmuted);margin-top:10px}
+.arcs{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3}
+.arcs *{fill:none;stroke:rgba(255,255,255,.14);stroke-width:1.2;stroke-dasharray:7 9;animation:march 22s linear infinite}
+@keyframes march{to{stroke-dashoffset:-320}}
+.plane{position:absolute;right:20px;top:40px;width:120px;height:90px}

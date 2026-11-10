@@ -1,0 +1,50 @@
+/* ===== Bracket system (follows the What we build cards) ===== */
+.pcard,.plan,.tm,.wc,.int,.cm,.dcard,.dbox,.ci,.book,.tteaser,.form,.spanel,.pv,.dsh,.kcard,.bc,.tc,.pcd,.lp,.sgt,.lcells,.cmp,.sheet,.sgpanel,.bwrap,.where,.sviz,.task,.bcard .art,.wst,.gl,.lcard,.btn.o,.btn.wh,.navc,.ib,.badge,.seg,.stabs button,.filters button,.crumbs button,.crumbs a,.pvt button,.lps button,.chip,.fld input,.fld select,.fld textarea,.kp,.fnode:not(.ck),.fli{
+  --bkc:var(--subtle);--bks:14px;--bkw:1.5px;
+  --bkimg:linear-gradient(var(--bkc),var(--bkc)) left top/var(--bks) var(--bkw) no-repeat,linear-gradient(var(--bkc),var(--bkc)) left top/var(--bkw) var(--bks) no-repeat,
+          linear-gradient(var(--bkc),var(--bkc)) right top/var(--bks) var(--bkw) no-repeat,linear-gradient(var(--bkc),var(--bkc)) right top/var(--bkw) var(--bks) no-repeat,
+          linear-gradient(var(--bkc),var(--bkc)) left bottom/var(--bks) var(--bkw) no-repeat,linear-gradient(var(--bkc),var(--bkc)) left bottom/var(--bkw) var(--bks) no-repeat,
+          linear-gradient(var(--bkc),var(--bkc)) right bottom/var(--bks) var(--bkw) no-repeat,linear-gradient(var(--bkc),var(--bkc)) right bottom/var(--bkw) var(--bks) no-repeat;
+  border-radius:0!important;background-origin:border-box}
+/* small elements get small brackets */
+.btn.o,.btn.wh,.ib,.badge,.seg,.stabs button,.filters button,.crumbs button,.crumbs a,.pvt button,.lps button,.chip,.fld input,.fld select,.fld textarea,.kp,.fnode:not(.ck),.fli,.navc,.task,.wst,.gl,.lcard{--bks:7px;--bkw:1.5px}
+/* bracket colours per context */
+.inv .bc,.inv .tc,.inv .pcd,.inv .lp,.inv .bwrap,.inv .lcard,.inv .btn.wh,.inv .fnode,.inv .btn.o,.where .wst,.where,.foot .ib,.inv .chip{--bkc:rgba(255,255,255,.42)}
+.plan.hot,.dcard.hot,.book,.sgpanel,.sgt,.gl,.sgpanel .btn,.plan.hot .btn.wh,.book .btn.wh{--bkc:rgba(255,255,255,.7)}
+.btn.o,.badge,.chip,.navc,.seg,.ib{--bkc:var(--ink)}
+.stabs button[aria-selected="true"],.filters button[aria-pressed="true"],.pvt button[aria-selected="true"]{--bkc:var(--accent)}
+/* compose brackets with each element's own background */
+.pcard,.plan,.tm,.wc,.int,.cm,.dcard,.dbox,.ci,.tteaser,.form,.spanel,.pv,.dsh,.kcard,.lcells,.cmp,.sheet,.task,.navc,.ib,.badge,.seg,.stabs button,.filters button,.crumbs button,.crumbs a,.kp,.fli{background:var(--bkimg),var(--surface)}
+.navc{background:var(--bkimg),var(--navpill)}
+.seg{background:var(--bkimg),var(--bg2)}
+.fld input,.fld select,.fld textarea{background:var(--bkimg),var(--bg)}
+.btn.o,.pvt button,.lps button,.chip.s{background:var(--bkimg),transparent}
+.chip{background:var(--bkimg),var(--accentsoft)}
+.chip.s{background:var(--bkimg),var(--bg2)}
+.btn.wh{background:var(--bkimg),#fff}
+.stabs button[aria-selected="true"],.filters button[aria-pressed="true"],.pvt button[aria-selected="true"]{background:var(--bkimg),var(--ink)}
+.lps button[aria-pressed="true"]{background:var(--bkimg),rgba(255,255,255,.12)}
+.plan.hot,.dcard.hot,.book{background:var(--bkimg),var(--feat)}
+.bc{background:var(--bkimg),linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015))}
+.bwrap{background:var(--bkimg),linear-gradient(180deg,var(--inv2),var(--inv))}
+.tc,.pcd,.lp{background:var(--bkimg),var(--inv2)}
+.lp.mid{background:var(--bkimg),color-mix(in srgb,var(--inv2) 70%,#fff 8%)}
+.where{background:var(--bkimg),#000}
+.wst{background:var(--bkimg),rgba(255,255,255,.04)}
+.gl{background:var(--bkimg),rgba(255,255,255,.14)}
+.lcard{background:var(--bkimg),rgba(255,255,255,.06)}
+.fnode:not(.ck){background:var(--bkimg),var(--inv2)}
+.sgpanel{background:var(--bkimg),var(--panel)}
+.sgt{background:var(--bkimg),linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px) 0 0/18px 18px,linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px) 0 0/18px 18px,rgba(255,255,255,.1)}
+.sviz{background:var(--bkimg),var(--dawn)}
+.bcard .art{--bkc:rgba(255,255,255,.75)}
+.bcard .art::after{content:"";position:absolute;inset:0;background:var(--bkimg);pointer-events:none;z-index:2}
+/* square corners for the remaining bordered or filled controls */
+.btn,.btn.p,.btn.k,.seg .ind,.seg button,.sgi,.sgt .go2 i,.int .ic,.pcard .ic,.mk,.mk-b,.okdot,.pvk div,.pvc,.pvbar .pvurl,.wc .wa .sm,.tw,.onp,.pin,.pvr em,.task .act,.soc span,.oc,.mock,.dbot,.kr0,.cm .ic,.ci .ic,.dcard .ic,.lcell,.kl{border-radius:0!important}
+.btn.p,.btn.k{box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.kr0{background:var(--ring)}
+.dbot{margin-top:-1px}
+.navc a,.navc a[aria-current="page"]{border-radius:0}
+.navc a[aria-current="page"]{box-shadow:inset 0 0 0 1px var(--line)}
+.pvbars i,.mk-bars i{border-radius:0}
+.kp .okc,.okc{border-radius:0!important}

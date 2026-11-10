@@ -1,0 +1,101 @@
+{
+  "_note": "Temporary client and advisor names used before launch. Set confirmed: true once a name is approved for publication, or replace it with the real one. `npm run check:content` (run automatically before `npm run build:prod`) fails while any entry is unconfirmed.",
+  "logoStrip": [
+    {
+      "name": "Cooperative Bank",
+      "confirmed": true
+    },
+    {
+      "name": "Bank of Abyssinia",
+      "confirmed": false
+    },
+    {
+      "name": "Everest Use Academy",
+      "confirmed": true
+    },
+    {
+      "name": "Gadaa Health",
+      "confirmed": false
+    },
+    {
+      "name": "Abbay Transit",
+      "confirmed": false
+    },
+    {
+      "name": "Hora Logistics",
+      "confirmed": false
+    },
+    {
+      "name": "Odaa Builders",
+      "confirmed": false
+    }
+  ],
+  "trustedBy": [
+    {
+      "name": "Ethio Telecom",
+      "confirmed": true
+    },
+    {
+      "name": "Nile Insurance",
+      "confirmed": true
+    },
+    {
+      "name": "Careland Hospital",
+      "confirmed": true
+    },
+    {
+      "name": "Tulluu Energy",
+      "confirmed": false
+    },
+    {
+      "name": "Qabsa Retail",
+      "confirmed": false
+    },
+    {
+      "name": "Gadaa Health",
+      "confirmed": false
+    }
+  ],
+  "caseStudies": {
+    "education": {
+      "name": "Finfinne Schools",
+      "confirmed": false
+    },
+    "health": {
+      "name": "Walaabu Clinic",
+      "confirmed": false
+    },
+    "transport": {
+      "name": "Abbay Transit",
+      "confirmed": false
+    },
+    "logistics": {
+      "name": "Hora Logistics",
+      "confirmed": false
+    },
+    "ecom": {
+      "name": "Qabsa Retail",
+      "confirmed": false
+    },
+    "gov": {
+      "name": "Biftu Civic Services",
+      "confirmed": false
+    }
+  },
+  "advisors": [
+    {
+      "name": "Abdurazak Ishaq",
+      "initials": "AI",
+      "role": "Advisor, AI engineering",
+      "bio": "Experienced AI engineer. Advises Bari on applying AI and data to the systems we build.",
+      "confirmed": true
+    },
+    {
+      "name": "Ismail Abdulqadir",
+      "initials": "IA",
+      "role": "Advisor, Software engineering",
+      "bio": "Experienced software developer. Tests Bari’s products and works with the team on engineering quality.",
+      "confirmed": true
+    }
+  ]
+}

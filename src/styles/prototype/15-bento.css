@@ -1,0 +1,20 @@
+/* bento */
+.bwrap{border:1px solid var(--invline);border-radius:26px;padding:clamp(14px,3vw,36px);background:linear-gradient(180deg,var(--inv2),var(--inv))}
+.bgridx{display:grid;grid-template-columns:.82fr 1.7fr;grid-template-rows:170px 130px 200px;gap:14px}
+.bc{position:relative;border:1px solid var(--invline);border-radius:22px;padding:24px 26px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));overflow:hidden}
+.bc.a{grid-column:1;grid-row:1}.bc.b{grid-column:1;grid-row:2 / span 2}.bc.c{grid-column:2;grid-row:1 / span 2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.bc.d{grid-column:2;grid-row:3;display:flex;flex-direction:column;justify-content:center}
+.bp{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--invmuted)}
+.onp{display:inline-flex;align-items:center;gap:7px;background:var(--accentsoft);color:var(--accenttext);border-radius:999px;padding:4px 11px;font-weight:500;font-size:12px}
+.onp::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.bt{font-family:var(--disp);font-size:clamp(19px,2vw,26px);line-height:1.2;letter-spacing:-.03em;color:var(--invmuted);margin-top:14px}
+.bt b{font-weight:400;color:var(--invink)}
+.bc.c .bt{margin:0;font-size:clamp(22px,2.6vw,34px)}
+.tw-wrap{position:absolute;left:0;right:0;top:0;height:62%}
+.tw{position:absolute;display:grid;place-items:center;width:36px;height:36px;border-radius:10px;font-size:15px;color:var(--invink);background:rgba(255,255,255,.06);border:1px solid var(--invline);font-family:var(--eth)}
+.tw.hi{background:var(--accentsoft);color:var(--accenttext)}
+.bb{position:absolute;left:26px;bottom:24px;right:26px}
+.lgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 20px;margin-top:34px;width:100%;max-width:540px}
+.lgo{display:inline-flex;align-items:center;justify-content:center;gap:9px;color:var(--invmuted);font-family:var(--disp);font-size:17px;letter-spacing:-.02em;white-space:nowrap}
+.bc.d .sm{font-size:12.5px;line-height:1.5;color:var(--invmuted);margin-top:10px;max-width:290px}
+canvas.globe{position:absolute;right:-70px;bottom:-140px;width:430px;height:430px}
+.bnote{margin-top:14px;font-size:12px;color:var(--invmuted);text-align:center}

@@ -1,0 +1,21 @@
+/* coverage (img6) */
+.cgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,580px);gap:72px;align-items:center}
+.clist{display:flex;flex-direction:column;gap:12px;margin-top:28px;font-size:15.5px}
+.clist li{display:flex;gap:12px;align-items:center}
+.kr0{background:var(--ring);border-radius:44px;padding:26px}
+.kcard{position:relative;background:var(--surface);border-radius:34px;height:590px;overflow:hidden;box-shadow:0 20px 50px var(--shadow)}
+.kglow{position:absolute;left:0;top:90px;bottom:54px;width:45.5%;background:linear-gradient(90deg,transparent,var(--kglow));filter:blur(14px)}
+.kline{position:absolute;left:45.5%;top:70px;bottom:44px;width:4px;margin-left:-2px;background:linear-gradient(180deg,var(--accenttext),var(--accent));border-radius:3px;transform-origin:top}
+.ktop{position:absolute;left:45.5%;top:36px;transform:translateX(-50%);display:flex;align-items:center;gap:9px;background:var(--accent);color:var(--accentink);border-radius:10px;padding:9px 16px;font-size:16px;white-space:nowrap;box-shadow:0 10px 26px var(--shadow);z-index:3}
+.ktop svg circle{fill:none;stroke-width:3}
+.kring{stroke:var(--globe);stroke-dasharray:100;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:center}
+.m .kring{stroke-dashoffset:100}.go .kring{animation:rf 1.6s var(--ease) .5s forwards}
+@keyframes rf{to{stroke-dashoffset:0}}
+.krows{position:absolute;left:0;right:0;top:108px;display:flex;flex-direction:column;gap:12px}
+.kr{display:grid;grid-template-columns:45.5% 1fr;align-items:center;height:46px}
+.kl{justify-self:end;margin-right:12px;background:var(--bg2);border-radius:999px;height:46px;padding:0 20px;display:flex;align-items:center;font-size:15.5px;color:var(--muted);filter:blur(3.4px);opacity:.85;white-space:nowrap}
+.kp{justify-self:start;margin-left:10px;display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 18px;border:1px solid var(--line);border-radius:999px;font-size:16px;background:var(--surface);white-space:nowrap;z-index:2}
+.okc{width:24px;height:24px;border-radius:50%;background:var(--accent);display:grid;place-items:center;flex:none}
+.m .kp{opacity:0}.m .kline{transform:scaleY(0)}.m .ktop{opacity:0}
+.kd{position:absolute;width:4px;height:4px;border-radius:50%;background:#fff;box-shadow:0 0 6px var(--accent);left:0;top:0;pointer-events:none;opacity:0}
+.kcap{text-align:center;margin-top:22px;font-size:15px;color:var(--muted)}

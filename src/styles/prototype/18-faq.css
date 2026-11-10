@@ -1,0 +1,9 @@
+/* faq */
+.fgrid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:start}
+.fql{border-top:1px solid var(--line)}
+.fq{border-bottom:1px solid var(--line)}
+.fqb{width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:72px;padding:14px 0;background:transparent;border:0;cursor:pointer;font-family:var(--disp);font-size:clamp(18px,1.9vw,22px);letter-spacing:-.02em;text-align:left;color:var(--ink)}
+.fqb svg{flex:none;transition:transform .4s var(--ease)}
+.fqb[aria-expanded="true"] svg{transform:rotate(45deg)}
+.fqp{overflow:hidden}.fqp[hidden]{display:none}
+.fqp p{padding:0 56px 26px 0;font-size:15.5px;line-height:1.6;color:var(--muted);max-width:640px}

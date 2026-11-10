@@ -1,0 +1,9 @@
+/* statement */
+.stmt{font-family:var(--disp);font-size:clamp(30px,4vw,56px);line-height:1.1;letter-spacing:-.035em;max-width:1080px}
+.sw{opacity:var(--o,1);transition:opacity .2s linear}
+.m .sw{opacity:.14}
+.pcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:72px}
+.pcard{border:1px solid var(--line);border-radius:20px;padding:28px;background:var(--surface);display:flex;flex-direction:column;gap:14px}
+.pcard .ic{width:46px;height:46px;border-radius:12px;background:var(--accentsoft);display:grid;place-items:center;color:var(--accenttext)}
+.pcard h3{font-size:20px;font-weight:600;letter-spacing:-.02em}
+.ic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
