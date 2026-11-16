@@ -12,9 +12,56 @@ const hostGrotesk = Host_Grotesk({ subsets: ['latin', 'latin-ext'], weight: 'var
 const instrumentSans = Instrument_Sans({ subsets: ['latin', 'latin-ext'], weight: 'variable', variable: '--font-instrument-sans', display: 'swap', adjustFontFallback: false, fallback: [] });
 const notoEthiopic = Noto_Sans_Ethiopic({ subsets: ['ethiopic'], weight: 'variable', variable: '--font-noto-ethiopic', display: 'swap', adjustFontFallback: false, fallback: [] });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bari.et';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: { default: TITLES.home, template: '%s' },
   description: DESCRIPTION,
+  applicationName: 'Bari Technologies',
+  authors: [{ name: 'Bari Technologies' }],
+  generator: 'Next.js',
+  keywords: [
+    'Bari Technologies',
+    'Barii',
+    'Software Ethiopia',
+    'Ethiopian Tech',
+    'Essential Services Software',
+    'Shashemene',
+    'Health Tech Ethiopia',
+    'Education Technology Ethiopia',
+    'Logistics Software Ethiopia',
+  ],
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: siteUrl,
+    siteName: 'Bari Technologies',
+    title: TITLES.home,
+    description: DESCRIPTION,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: TITLES.home,
+    description: DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'google23c9a1861718be2c.html',
+  },
 };
 
 export const viewport: Viewport = {

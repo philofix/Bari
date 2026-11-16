@@ -44,7 +44,7 @@ export function ContactForm() {
                 <path d="M13 6l6 6-6 6" />
               </svg>
             </button>
-            <span style={{ fontSize: "13px", color: "var(--muted)" }}>Opens your email app, ready to send.</span>
+            <span style={{ fontSize: "13px", color: "var(--muted)" }}>We usually reply within 24 hours.</span>
           </div>
           <p className="fmsg" aria-live="polite" />
         </form>

@@ -217,29 +217,104 @@ export function bindFaq(pg: HTMLElement, scope: Scope) {
   });
 }
 
-/** Contact forms open the visitor's mail app with a pre-filled enquiry. */
+async function sendViaEmailJs(data: { name: string; email: string; org: string; sector: string; msg: string }) {
+  const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+  if (!serviceId || !templateId || !publicKey) {
+    throw new Error('EmailJS is not configured.');
+  }
+
+  const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      service_id: serviceId,
+      template_id: templateId,
+      user_id: publicKey,
+      template_params: {
+        from_name: data.name || 'Anonymous',
+        name: data.name || 'Anonymous',
+        from_email: data.email,
+        email: data.email,
+        reply_to: data.email,
+        organization: data.org,
+        org: data.org,
+        sector: data.sector || 'Not specified',
+        message: data.msg || 'I would like to discuss a project.',
+        to_email: CONTACT_EMAIL,
+      },
+    }),
+  });
+
+  if (!response.ok) {
+    const errText = await response.text().catch(() => '');
+    throw new Error(errText || `Request failed with status ${response.status}`);
+  }
+}
+
+/** Contact forms send via EmailJS with a mailto fallback. */
 export function bindMailForms(pg: HTMLElement, scope: Scope) {
   $$<HTMLFormElement>('form[data-mail]', pg).forEach((fm) => {
     const msg = $('.fmsg', fm) || (fm.parentElement ? $('.chint', fm.parentElement) : null);
-    scope.on(fm, 'submit', (e: SubmitEvent) => {
+    const submitBtn = $<HTMLButtonElement>('button[type=submit]', fm);
+
+    scope.on(fm, 'submit', async (e: SubmitEvent) => {
       e.preventDefault();
       const em = $<HTMLInputElement>('input[type=email]', fm);
       if (!em) return;
       if (!em.value.trim() || !em.checkValidity()) {
-        if (msg) msg.textContent = 'Enter a valid email address so we can reply.';
+        if (msg) {
+          msg.textContent = 'Enter a valid email address so we can reply.';
+          msg.style.color = 'var(--accenttext, #b91c1c)';
+        }
         em.focus();
         return;
       }
-      const f = new FormData(fm), lines = ['Hello Bari team,', ''];
-      const g = (k: string) => (f.get(k) as string | null) || '';
-      if (g('name')) lines.push('Name: ' + g('name'));
-      lines.push('Email: ' + g('email'));
-      if (g('org')) lines.push('Organisation: ' + g('org'));
-      if (g('sector')) lines.push('Sector: ' + g('sector'));
-      lines.push('');
-      lines.push(g('msg') || 'I would like to discuss a project.');
-      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Project enquiry')}&body=${encodeURIComponent(lines.join('\n'))}`;
-      if (msg) msg.textContent = 'Thank you. Your email app should open with your message ready to send.';
+
+      const f = new FormData(fm);
+      const g = (k: string) => ((f.get(k) as string | null) || '').trim();
+      const payload = {
+        name: g('name'),
+        email: g('email'),
+        org: g('org'),
+        sector: g('sector'),
+        msg: g('msg'),
+      };
+
+      if (submitBtn) submitBtn.disabled = true;
+      if (msg) {
+        msg.textContent = 'Sending message...';
+        msg.style.color = 'var(--muted)';
+      }
+
+      try {
+        await sendViaEmailJs(payload);
+        fm.reset();
+        if (msg) {
+          msg.textContent = 'Thank you! Your message has been sent successfully. We will get back to you shortly.';
+          msg.style.color = '#15803d';
+        }
+      } catch {
+        // Fallback to client mail app if EmailJS is not configured or network fails
+        const lines = ['Hello Bari team,', ''];
+        if (payload.name) lines.push('Name: ' + payload.name);
+        lines.push('Email: ' + payload.email);
+        if (payload.org) lines.push('Organisation: ' + payload.org);
+        if (payload.sector) lines.push('Sector: ' + payload.sector);
+        lines.push('');
+        lines.push(payload.msg || 'I would like to discuss a project.');
+        window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Project enquiry')}&body=${encodeURIComponent(lines.join('\n'))}`;
+        if (msg) {
+          msg.textContent = 'Email client opened with your message ready to send.';
+          msg.style.color = 'var(--muted)';
+        }
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+      }
     });
   });
 }
