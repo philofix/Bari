@@ -92,6 +92,27 @@ export function ContactForm() {
           </div>
         </div>
       </div>
+      <div id="contact-dialog" className="cmodal" hidden role="dialog" aria-modal="true" aria-labelledby="cd-title">
+        <div className="cmodal-box">
+          <button type="button" className="cmodal-close" id="cd-close" aria-label="Close dialog">
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
+          <div className="cmodal-icon">
+            <svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M20 6L9 17l-5-5" />
+            </svg>
+          </div>
+          <h3 id="cd-title" className="cmodal-title">Message sent!</h3>
+          <p className="cmodal-desc">
+            Thank you<span id="cd-name"></span>. We have received your message and will reply to <strong id="cd-email">your email</strong> within 24 hours.
+          </p>
+          <button type="button" className="btn p cmodal-btn" id="cd-ok">
+            Done
+          </button>
+        </div>
+      </div>
     </section>
   );
 }

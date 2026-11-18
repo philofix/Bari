@@ -1,3 +1,4 @@
+import emailjs from '@emailjs/browser';
 import { $, $$, animate, EASE, motionOK, prefersReducedMotion, Scope, stagger } from '@/lib/motion';
 
 const CONTACT_EMAIL = 'hamzsufian@gmail.com';
@@ -222,42 +223,80 @@ async function sendViaEmailJs(data: { name: string; email: string; org: string; 
   const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-  if (!serviceId || !templateId || !publicKey) {
+  if (
+    !serviceId ||
+    !templateId ||
+    !publicKey ||
+    serviceId === 'your_emailjs_service_id' ||
+    templateId === 'your_emailjs_template_id' ||
+    publicKey === 'your_emailjs_public_key'
+  ) {
     throw new Error('EmailJS is not configured.');
   }
 
-  const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
+  await emailjs.send(
+    serviceId,
+    templateId,
+    {
+      from_name: data.name || 'Anonymous',
+      name: data.name || 'Anonymous',
+      from_email: data.email,
+      email: data.email,
+      reply_to: data.email,
+      organization: data.org || 'Not specified',
+      org: data.org || 'Not specified',
+      sector: data.sector || 'Not specified',
+      message: data.msg || 'I would like to discuss a project.',
+      to_email: CONTACT_EMAIL,
     },
-    body: JSON.stringify({
-      service_id: serviceId,
-      template_id: templateId,
-      user_id: publicKey,
-      template_params: {
-        from_name: data.name || 'Anonymous',
-        name: data.name || 'Anonymous',
-        from_email: data.email,
-        email: data.email,
-        reply_to: data.email,
-        organization: data.org,
-        org: data.org,
-        sector: data.sector || 'Not specified',
-        message: data.msg || 'I would like to discuss a project.',
-        to_email: CONTACT_EMAIL,
-      },
-    }),
-  });
-
-  if (!response.ok) {
-    const errText = await response.text().catch(() => '');
-    throw new Error(errText || `Request failed with status ${response.status}`);
-  }
+    {
+      publicKey,
+    },
+  );
 }
 
-/** Contact forms send via EmailJS with a mailto fallback. */
+/** Contact forms send via EmailJS with a confirmation dialog & mailto fallback. */
 export function bindMailForms(pg: HTMLElement, scope: Scope) {
+  const dialog = $<HTMLElement>('#contact-dialog', pg);
+  const box = dialog ? $<HTMLElement>('.cmodal-box', dialog) : null;
+  const nameEl = dialog ? $<HTMLElement>('#cd-name', dialog) : null;
+  const emailEl = dialog ? $<HTMLElement>('#cd-email', dialog) : null;
+  const closeBtn = dialog ? $<HTMLElement>('#cd-close', dialog) : null;
+  const okBtn = dialog ? $<HTMLElement>('#cd-ok', dialog) : null;
+
+  const closeDialog = () => {
+    if (!dialog || dialog.hidden) return;
+    if (motionOK() && box) {
+      animate(box, { opacity: [1, 0], scale: [1, 0.95], y: [0, 8] }, { duration: 0.2, ease: EASE }).then(() => {
+        dialog.hidden = true;
+      });
+    } else {
+      dialog.hidden = true;
+    }
+  };
+
+  const openDialog = (name: string, email: string) => {
+    if (!dialog) return;
+    if (nameEl) nameEl.textContent = name ? `, ${name}` : '';
+    if (emailEl) emailEl.textContent = email || 'your email';
+    dialog.hidden = false;
+    if (motionOK() && box) {
+      animate(box, { opacity: [0, 1], scale: [0.93, 1], y: [16, 0] }, { duration: 0.35, ease: EASE });
+    }
+    okBtn?.focus();
+  };
+
+  if (dialog) {
+    if (closeBtn) scope.on(closeBtn, 'click', closeDialog);
+    if (okBtn) scope.on(okBtn, 'click', closeDialog);
+    scope.on(dialog, 'click', (e: MouseEvent) => {
+      if (e.target === dialog) closeDialog();
+    });
+    scope.on(window, 'keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && !dialog.hidden) closeDialog();
+    });
+  }
+
   $$<HTMLFormElement>('form[data-mail]', pg).forEach((fm) => {
     const msg = $('.fmsg', fm) || (fm.parentElement ? $('.chint', fm.parentElement) : null);
     const submitBtn = $<HTMLButtonElement>('button[type=submit]', fm);
@@ -285,7 +324,17 @@ export function bindMailForms(pg: HTMLElement, scope: Scope) {
         msg: g('msg'),
       };
 
-      if (submitBtn) submitBtn.disabled = true;
+      const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <svg class="spin" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+          </svg>
+          Sending message...
+        `;
+      }
+
       if (msg) {
         msg.textContent = 'Sending message...';
         msg.style.color = 'var(--muted)';
@@ -295,10 +344,12 @@ export function bindMailForms(pg: HTMLElement, scope: Scope) {
         await sendViaEmailJs(payload);
         fm.reset();
         if (msg) {
-          msg.textContent = 'Thank you! Your message has been sent successfully. We will get back to you shortly.';
-          msg.style.color = '#15803d';
+          msg.textContent = 'Thank you! Your message has been sent successfully.';
+          msg.style.color = 'var(--ok, #3f8f5f)';
         }
-      } catch {
+        openDialog(payload.name, payload.email);
+      } catch (err) {
+        console.error('EmailJS error:', err);
         // Fallback to client mail app if EmailJS is not configured or network fails
         const lines = ['Hello Bari team,', ''];
         if (payload.name) lines.push('Name: ' + payload.name);
@@ -313,7 +364,10 @@ export function bindMailForms(pg: HTMLElement, scope: Scope) {
           msg.style.color = 'var(--muted)';
         }
       } finally {
-        if (submitBtn) submitBtn.disabled = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHtml;
+        }
       }
     });
   });
